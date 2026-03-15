@@ -1,0 +1,4 @@
+name: zmk-keyboard-nordex-54
+build:
+  settings:
+    board_root: .

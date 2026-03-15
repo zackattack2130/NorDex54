@@ -1,0 +1,36 @@
+#include "nordex_54.dtsi"
+
+/ {
+    kscan0: kscan0 {
+        compatible = "zmk,kscan-gpio-matrix";
+        diode-direction = "col2row";
+        wakeup-source;
+
+        col-gpios
+            = <&pro_micro 0 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 2 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 3 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 4 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 5 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 6 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 1 GPIO_ACTIVE_HIGH>
+            ;
+
+        row-gpios
+            = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 18 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            ;
+    };
+};
+
+&matrix_transform0 {
+    col-offset = <7>;
+};
+
+&physical_layout_nordex_54 {
+    kscan = <&kscan0>;
+};
+
